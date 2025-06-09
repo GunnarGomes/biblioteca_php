@@ -1,5 +1,5 @@
 <?php
-    include_once "../model/user.php";
+    include_once "C:/xampp/htdocs/biblioteca/model/user.php";
 
     class UserController 
     {
@@ -19,7 +19,7 @@
         
         public function showCadastro() // ir para pagina de cadastro
         {
-            require "../view/cadastroProf.php";   
+            require "C:/xampp/htdocs/biblioteca/view/cadastroProf.php";   
         }
 
         public function login() 

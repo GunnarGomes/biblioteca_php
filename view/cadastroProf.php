@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <form action="/cadastro" method="post">
+    <form action="/biblioteca/cadastro" method="post">
         <h2>CADASTRO PROFESSOR</h2>
         <label for="nome">Nome: </label>
         <input type="text" name="nome" id="nome"><br>
