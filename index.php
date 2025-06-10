@@ -13,6 +13,9 @@ switch($route) {
     case 'login':
         include "./view/login.php";
         break;
+    case 'cadastro':
+        $userControl->cadastro();
+        break;
 }
 
 ?>

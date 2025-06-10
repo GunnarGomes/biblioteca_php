@@ -14,7 +14,7 @@
 
         public function showLogin() // Ir para pagina de login
         {
-            require "../view/login";
+            require "C:/xampp/htdocs/biblioteca/view/login";
         }
         
         public function showCadastro() // ir para pagina de cadastro
@@ -46,7 +46,7 @@
             $senha = $_POST["senha"];
 
             $res = $this->userModel->cadastro($nome,$cpf,$senha);
-
+            echo "cadastro";
             if ($res === true)
             {
                 echo "Cadastro feito... ou não...";
