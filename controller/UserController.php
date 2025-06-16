@@ -1,5 +1,5 @@
 <?php
-    include_once "C:/xampp/htdocs/biblioteca/model/user.php";
+    include_once "../biblioteca_php/model/user.php";
 
     class UserController 
     {
@@ -14,28 +14,29 @@
 
         public function showLogin() // Ir para pagina de login
         {
-            require "C:/xampp/htdocs/biblioteca/view/login";
+            require "./view/login";
         }
         
         public function showCadastro() // ir para pagina de cadastro
         {
-            require "C:/xampp/htdocs/biblioteca/view/cadastroProf.php";   
+            require "./view/cadastroProf.php";   
         }
 
-        public function login() 
+        public function login()
         {
             $cpf = $_POST["cpf"];
             $senha = $_POST["senha"];
             
-            $user = $this->userModel->login($cpf,$senha);
 
-            if($user)
-            {
+            $user = $this->userModel->login($cpf,$senha);
+            var_dump($user);
+            if($user){
                 session_start();
                 $_SESSION["user"] = $user;
-                header("Location /dashboard");
+                header("Location: /biblioteca_php/dashboard");
             } else {
-                echo "Algo está errado";
+                var_dump($user);
+                echo "<br>Algo está errado";
             }
         }
 
@@ -44,8 +45,9 @@
             $nome = $_POST["nome"];
             $cpf = $_POST["cpf"];
             $senha = $_POST["senha"];
+            $email = $_POST["email"];
 
-            $res = $this->userModel->cadastro($nome,$cpf,$senha);
+            $res = $this->userModel->cadastro($nome,$cpf,$senha,$email);
             echo "cadastro";
             if ($res === true)
             {

@@ -13,30 +13,32 @@
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($user && password_verify($senha, $user['senha'])){
+            if ($user && password_verify($senha, $user['senha_hash'])){
                 return $user;
             }
             return false;
         }
 
-        public function cadastro($nome, $cpf, $senha){
+        public function cadastro($nome, $cpf, $senha, $email){
             
-            $query = "SELECT id FROM professores WHERE cpf == :cpf";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(':cpf', $cpf);
-            $stmt->execute();
+            // $query = "SELECT id FROM professores WHERE cpf == :cpf";
+            // $stmt = $this->conn->prepare($query);
+            // $stmt->bindParam(':cpf', $cpf);
+            // $stmt->execute();
 
-            if($stmt->rowcount() > 0){
-                return "cpf já cadastrado";
-            }
+            // if($stmt->rowcount() > 0){
+            //     return "cpf já cadastrado";
+            // }
 
             $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-            $query = "INSERT INTO professores(nome,cpf,senha_hash) VALUES (:nome,:cpf,:senha) ";
+            $query = "INSERT INTO professores(nome,cpf,senha_hash,email) VALUES (:nome,:cpf,:senha,:email); ";
+            
             $stmt = $this->conn->prepare($query);
+
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':cpf', $cpf);
             $stmt->bindParam(':senha', $senhaHash);
+            $stmt->bindParam(':email', $email);
             echo "você está no cadastro";
             if($stmt->execute()){
                 echo "cadastro deu certo";

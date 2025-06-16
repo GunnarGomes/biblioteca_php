@@ -7,12 +7,14 @@
 </head>
 <body>
     
-    <form action="/biblioteca/cadastro" method="post">
+    <form action="/biblioteca_php/cadastro" method="post">
         <h2>CADASTRO PROFESSOR</h2>
         <label for="nome">Nome: </label>
         <input type="text" name="nome" id="nome"><br>
         <label for="cpf">CPF:</label>
         <input type="text" id="cpf" name="cpf"><br>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email"><br>
         <label for="password">Senha:</label>
         <input type="password" name="senha" id="password"><br>
         <button type="submit">Cadastrar</button>

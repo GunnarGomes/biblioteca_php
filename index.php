@@ -1,6 +1,6 @@
 <?php
-include_once "C:/xampp/htdocs/biblioteca/controller/UserController.php";
-include_once "C:/xampp/htdocs/biblioteca/model/config.php";
+include_once "./controller/UserController.php";
+include_once "./model/config.php";
 
 $userControl = new UserController($pdo);
 
@@ -13,8 +13,14 @@ switch($route) {
     case 'login':
         include "./view/login.php";
         break;
+    case 'entrar':
+        $userControl->login();
+        break;
     case 'cadastro':
         $userControl->cadastro();
+        break;
+    case 'dashboard':
+        include "./view/dashboard.php";
         break;
 }
 

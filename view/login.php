@@ -7,12 +7,12 @@
 </head>
 <body>
     
-    <form action="/login" method="post">
+    <form action="/biblioteca_php/entrar" method="post">
         <h2>LOGIN</h2>
         <label for="cpf">CPF:</label>
         <input type="text" id="cpf" name="cpf"><br>
         <label for="password">Senha:</label>
-        <input type="password" name="password" id="password"><br>
+        <input type="password" name="senha" id="senha"><br>
         <button type="submit">Login</button>
     </form>
 
