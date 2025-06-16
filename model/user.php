@@ -20,15 +20,6 @@
         }
 
         public function cadastro($nome, $cpf, $senha, $email){
-            
-            // $query = "SELECT id FROM professores WHERE cpf == :cpf";
-            // $stmt = $this->conn->prepare($query);
-            // $stmt->bindParam(':cpf', $cpf);
-            // $stmt->execute();
-
-            // if($stmt->rowcount() > 0){
-            //     return "cpf já cadastrado";
-            // }
 
             $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
             $query = "INSERT INTO professores(nome,cpf,senha_hash,email) VALUES (:nome,:cpf,:senha,:email); ";

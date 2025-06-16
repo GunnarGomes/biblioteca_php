@@ -13,6 +13,7 @@ $user = $_SESSION["user"];
     <title>Document</title>
 </head>
 <body>
+    <?php include_once "includes/header_nav.php"; ?>
     <p>Olá, <?php echo htmlspecialchars($user["nome"]); ?> </p>
 
     
