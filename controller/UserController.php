@@ -14,12 +14,12 @@
 
         public function showLogin() // Ir para pagina de login
         {
-            require "./view/login";
+            require_once "./view/login";
         }
         
         public function showCadastro() // ir para pagina de cadastro
         {
-            require "./view/cadastroProf.php";   
+            require_once "./view/cadastroProf.php";   
         }
 
         public function login()
