@@ -1,5 +1,5 @@
 <?php
-    include_once '../model/livro.php';
+    include_once './model/livro.php';
 
     class LivroController 
     {
@@ -14,7 +14,7 @@
 
         function showLivroCad() // mostra o cadastro do livro
         { 
-            require_once '../view/';
+            require_once './view/cadastroLivro.php';
         }
     }
 ?>
