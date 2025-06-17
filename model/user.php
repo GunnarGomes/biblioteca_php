@@ -30,7 +30,7 @@
             $stmt->bindParam(':cpf', $cpf);
             $stmt->bindParam(':senha', $senhaHash);
             $stmt->bindParam(':email', $email);
-            echo "você está no cadastro";
+
             if($stmt->execute()){
                 echo "cadastro deu certo";
                 return true;
