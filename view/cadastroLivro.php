@@ -25,7 +25,6 @@
         <option value="autor">Autor</option>
     </select>
     <input type="text" id="searchterm" class="searchterm" name="searchterm">
-    <button type="submit">Buscar</button>
 
     <div class="resultados" id="resultados">
         

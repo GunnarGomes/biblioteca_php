@@ -61,10 +61,10 @@ function realizarBusca() {
 
                 const texto = document.createElement("div");
                 texto.innerHTML = `
-                    <h3>${titulo}</h3>
-                    <p><strong>Autores:</strong> ${autores}</p>
-                    <p><strong>Publicado:</strong> ${info.publishedDate || "Data desconhecida"}</p>
-                    <button type="button">Cadastrar</button>
+                    <h3 class='titulo-livro'>${titulo}</h3>
+                    <p class='autor-livro'><strong>Autores:</strong> ${autores}</p>
+                    <p claass='data-livro'><strong>Publicado:</strong> ${info.publishedDate || "Data desconhecida"}</p>
+                    <button type="button" class='cadastrar-livro'>Cadastrar</button>
                 `;
 
                 // Adiciona comportamento ao botão
