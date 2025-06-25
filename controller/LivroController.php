@@ -19,7 +19,12 @@
 
         function cadastrarLivro()
         {
-            
+            $titulo = $_POST["titulo"];
+            $autor = $_POST["autor"];
+            $isbn = $_POST["isbn"];
+
+            // depois coloco no db
+            echo "titulo:" . $titulo . "<br>autor:" . $autor . "<br>isbn:" . $isbn;
         }
     }
 ?>
