@@ -9,19 +9,16 @@
 
         function cadastrar_livro($titulo,$autor,$isbn)
         {
-            $query = "INSERT INTO livros(titulo,autor,isbn) VALUES (:titulo,:autor,:isbn);";
-            $stmt = $this->conn->prepare($query);
-
-            $stmt->bindParam(":titulo",$titulo);
-            $stmt->bindParam(":autor",$autor);
-            $stmt->bindParam(":isbn",$isbn);
-
-            if($stmt->execcute()){
-                echo "livro cadastrado";
+            try {
+                $query = "INSERT INTO livros(titulo,autor,isbn) VALUES (:titulo,:autor,:isbn)";
+                $stmt = $this->conn->prepare($query);
+                $stmt->bindParam(":titulo", $titulo);
+                $stmt->bindParam(":autor", $autor);
+                $stmt->bindParam(":isbn", $isbn);
+                $stmt->execute();
                 return true;
-            } else {
-                echo "ocorreu algum erro, verifique se está tudo certo";
-                return false;
+            } catch (PDOException $e) {
+                return $e; // retorna o erro para o controller
             }
         }
 

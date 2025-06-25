@@ -21,7 +21,7 @@ function realizarBusca() {
             query = `intitle:${termo}`;
             break;
         default:
-            query = termo; // busca genérica
+            query = termo;
     }
 
     fetch(link + encodeURIComponent(query))
@@ -38,6 +38,14 @@ function realizarBusca() {
             data.items.forEach(item => {
                 const info = item.volumeInfo;
 
+                const titulo = info.title || "Sem título";
+                const autores = info.authors?.join(", ") || "Desconhecido";
+                const isbn = (
+                    info.industryIdentifiers?.find(id => id.type === "ISBN_13")?.identifier ||
+                    info.industryIdentifiers?.find(id => id.type === "ISBN_10")?.identifier ||
+                    "Sem ISBN"
+                );
+
                 const livroDiv = document.createElement("div");
                 livroDiv.style.border = "1px solid #ddd";
                 livroDiv.style.padding = "10px";
@@ -53,10 +61,45 @@ function realizarBusca() {
 
                 const texto = document.createElement("div");
                 texto.innerHTML = `
-                    <h3>${info.title}</h3>
-                    <p><strong>Autores:</strong> ${info.authors?.join(", ") || "Desconhecido"}</p>
+                    <h3>${titulo}</h3>
+                    <p><strong>Autores:</strong> ${autores}</p>
                     <p><strong>Publicado:</strong> ${info.publishedDate || "Data desconhecida"}</p>
+                    <button type="button">Cadastrar</button>
                 `;
+
+                // Adiciona comportamento ao botão
+                const botao = texto.querySelector("button");
+                botao.addEventListener("click", () => {
+                    fetch("http://localhost:8081/biblioteca_php/cadastrar_livro", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            titulo: titulo,
+                            autor: autores,
+                            isbn: isbn
+                        })
+                    })
+                    .then(async resp => {
+                        const texto = await resp.text(); // captura a resposta como texto
+                        console.log("Resposta da API:", texto); // veja no console o que veio
+
+                        // tente converter em JSON somente se for válido
+                        try {
+                            const json = JSON.parse(texto);
+                            alert("Livro cadastrado com sucesso!");
+                        } catch (erro) {
+                            console.error("Resposta não é JSON válido:", texto);
+                            alert("Erro: a resposta do servidor não é JSON.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erro na requisição:", err);
+                        alert("Erro ao enviar os dados.");
+                    });
+
+                });
 
                 livroDiv.appendChild(img);
                 livroDiv.appendChild(texto);
