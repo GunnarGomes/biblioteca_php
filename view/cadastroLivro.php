@@ -17,6 +17,9 @@
         <input type="text" id="searchterm" class="searchterm" name="searchterm">
         <button type="submit">Buscar</button>
     </form>
+    <div class="resultados" id="resultados">
+        
+    </div>
     
 </body>
 </html>
