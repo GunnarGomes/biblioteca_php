@@ -21,8 +21,11 @@ switch($route) {
     case 'cadastro':
         $userControl->cadastro();
         break;
-    case 'cadastrar_livro':
+    case 'livro_cadastros':
         $livroControl->showLivroCad();
+        break;
+    case 'cadastrar_livro':
+        $livroControl->cadastrarLivro();
         break;
     case 'dashboard':
         include "./view/dashboard.php";

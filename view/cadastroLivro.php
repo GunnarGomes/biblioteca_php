@@ -7,6 +7,8 @@
 </head>
 <body>
     <?php require_once "./view/includes/header_nav.php"; ?>
+    <h3>Não encontrou?</h3>
+    <a href="" id="cadastrar" class="cadastrar">cadastrar</a>
     <form action="/biblioteca_php/cadastrar_livro" method="post">
         <label for="titulo" class="form_label">Titulo:</label>
         <input type="text" name="titulo" id="titulo" class="form_control">
@@ -14,6 +16,6 @@
         <input type="text" name="isbn" id="isbn" class="form_control">
         <button type="submit">Buscar</button>
     </form>
-
+    
 </body>
 </html>

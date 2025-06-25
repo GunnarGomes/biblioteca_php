@@ -16,5 +16,10 @@
         { 
             require_once './view/cadastroLivro.php';
         }
+
+        function cadastrarLivro()
+        {
+            
+        }
     }
 ?>
