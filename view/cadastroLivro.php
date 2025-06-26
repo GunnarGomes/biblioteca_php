@@ -4,14 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #resultados {
-            border: 1px solid gray;
-            padding: 10px;
-            background: #f9f9f9;
-        }
-
-    </style>
+    
 </head>
 <body>
     <?php require_once "./view/includes/header_nav.php"; ?>
