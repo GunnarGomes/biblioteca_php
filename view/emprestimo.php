@@ -27,13 +27,25 @@
 
                 $query = "SELECT id, titulo FROM livros";
                 $stmt = $pdo->query($query);
-                
+
                 while ($livro = $stmt->fetch(PDO::FETCH_ASSOC)){
                     echo '<option value="' . $livro['id'] . '">' . htmlspecialchars($livro['titulo']) . '</option>';
                 }
 
             ?>
         </select>
+        <select name="aluno" class="js-example-basic-single" id="aluno_select" style="width: 300px;">
+            <?php 
+                $query = "SELECT id, nome FROM alunos";
+                $stmt = $pdo->query($query);
+                
+                while ($aluno = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    echo '<option value="' . $aluno['id'] . '">' . htmlspecialchars($aluno['nome']) . '</option>';
+                }
+            ?>
+        </select>
+        
+        <button type="submit">Emprestar</button>
 
     </form>
     
