@@ -13,7 +13,7 @@ class EmprestimoController
 
     function showEmprestimoCad()
     {
-
+        include_once "./view/emprestimo.php";
     }
 
     function cadastrarEmprestimo()

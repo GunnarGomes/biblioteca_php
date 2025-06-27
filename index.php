@@ -2,7 +2,9 @@
 include_once "./controller/UserController.php";
 include_once "./model/config.php";
 include_once "./controller/LivroController.php";
+include_once "./controller/EmprestimoController.php";
 
+$emprestimoControl = new EmprestimoController($pdo);
 $userControl = new UserController($pdo);
 $livroControl = new LivroController($pdo);
 
@@ -30,6 +32,13 @@ switch($route) {
     case 'dashboard':
         include "./view/dashboard.php";
         break;
+    case 'cadastro_emprestimo':
+        $emprestimoControl->showEmprestimoCad();
+        break;
+    case 'cadastrar_emprestimo':
+        $emprestimoControl->cadastrarEmprestimo();
+        break;
+
 }
 
 ?>
