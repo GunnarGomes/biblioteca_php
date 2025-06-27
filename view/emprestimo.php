@@ -1,12 +1,11 @@
 
-
 <!DOCTYPE html>
 <html lang="pt-Br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- jQuery -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Select2 CSS -->
@@ -23,9 +22,21 @@
     
     <form action="/biblioteca_php/cadastrar_emprestimo" method="post">
         <select name="livro" class="js-example-basic-single" id="livro_select" style="width: 300px;">
-            <option value="1">teste</option>
+            <?php 
+                require_once __DIR__ . '/../model/config.php';
+
+                $query = "SELECT id, titulo FROM livros";
+                $stmt = $pdo->query($query);
+                
+                while ($livro = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    echo '<option value="' . $livro['id'] . '">' . htmlspecialchars($livro['titulo']) . '</option>';
+                }
+
+            ?>
         </select>
+
     </form>
+    
 
 
     <script>

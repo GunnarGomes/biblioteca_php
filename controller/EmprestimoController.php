@@ -13,6 +13,7 @@ class EmprestimoController
 
     function showEmprestimoCad()
     {
+        $pdo = $this->db;
         include_once "./view/emprestimo.php";
     }
 
